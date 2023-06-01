@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import pika
 import sys
+import redis
 from flask import Flask, request, jsonify
+
+r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 app = Flask(__name__)
 @app.route('/hello', methods=['POST'])
